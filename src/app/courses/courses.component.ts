@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Course } from './course.interface';
 import { Subject } from 'rxjs';
-import { CoursesService } from '../services/courses.service';
+import { CoursesService } from './services/courses.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-courses',
@@ -14,7 +15,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
 
   destroy$ = new Subject<boolean>();
 
-  constructor(private coursesService: CoursesService,) { }
+  constructor(private coursesService: CoursesService, ) { }
 
   ngOnInit(): void {
     this.getCourses();
@@ -28,6 +29,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
   private getCourses(): void {
     this.coursesService.getCourses().pipe(
       // map(response => response.filter(x => x.rating > 7)),
+      takeUntil(this.destroy$)
     ).subscribe(response => {
       this.courses = response;
     }, error => {
