@@ -3,6 +3,6 @@ export interface Course {
     title: string;
     description?: string;
     rating: number;
-    //DA SE DOBAVI I DATA NA PUBLIKUVANE
+    addedOn: any;
   }
   

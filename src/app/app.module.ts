@@ -7,13 +7,15 @@ import { CoursesComponent } from './courses/courses.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

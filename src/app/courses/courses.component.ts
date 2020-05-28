@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Course } from './course.interface';
-import { CoursesService } from './services/courses.service';
 import { Subject } from 'rxjs';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-courses',
@@ -33,5 +33,13 @@ export class CoursesComponent implements OnInit, OnDestroy {
     }, error => {
       console.log(error);
     });
+  }
+
+  trimDescription(description): string {
+    if (description.length > 200) {
+      return `${description.substr(0, 200)}...`;
+    }
+
+    return description;
   }
 }
