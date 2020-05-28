@@ -1,0 +1,23 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Course 1",
+      "description": "Test description",
+      "rating": 4.2
+    },
+	{
+      "id": 2,
+      "title": "Course 2",
+      "description": "Test description 2",
+      "rating": 5.3
+    },
+	{
+      "id": 3,
+      "title": "Course 3",
+      "description": "Test description 3",
+      "rating": 1.5
+    }
+  ]
+
+}
