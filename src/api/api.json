@@ -1,11 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
+	  "id": 1,
+      "name": "Admin",
+      "surname": "Admin",
+      "email": "admin@admin.com",
+      "password": "admin",
+      "roles": [
+        {
+          "role": "ADMIN"
+        }
+      ]
+	},
+    {
+      "id": 2,
       "name": "Atanas",
       "surname": "Arshinkov",
       "email": "test@gmail.com",
-      "password": "Test-1234"
+      "password": "qwerty",
+      "roles": [
+        {
+          "role": "USER"
+        }
+      ]
     }
   ],
   "courses": [

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {User} from '../models/user.interface';
 
@@ -32,6 +32,8 @@ export class AuthenticationService {
 
   logout(): void {
     localStorage.removeItem(this.loggedUserStorageKey);
+
+    this.setHasLoggedIn(false);
   }
 
   setLoggedUser(user: User): void {
@@ -49,6 +51,10 @@ export class AuthenticationService {
   }
 
   getHasLoggedIn(): Observable<boolean> {
+    if (this.getLoggedUser()) {
+      return of(true);
+    }
+
     return this.hasLoggedIn$.asObservable();
   }
 }

@@ -23,8 +23,9 @@ const routes: Routes = [
     canActivate: [NonAuthenticatedGuard]
   },
   {
-    path: '**',
-    redirectTo: 'login'
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'courses'
   }
 ];
 

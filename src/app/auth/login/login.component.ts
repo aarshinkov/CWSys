@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         return;
       }
 
+      console.log("here");
+
       // store logged user
       this.authService.setLoggedUser(response);
 
