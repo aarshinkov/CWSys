@@ -1,7 +1,7 @@
 {
   "users": [
     {
-	  "id": 1,
+      "id": 1,
       "name": "Admin",
       "surname": "Admin",
       "email": "admin@admin.com",
@@ -11,18 +11,18 @@
           "role": "ADMIN"
         }
       ]
-	},
+    },
     {
-      "id": 2,
       "name": "Atanas",
       "surname": "Arshinkov",
-      "email": "test@gmail.com",
+      "email": "a.arshinkov97@gmail.com",
       "password": "qwerty",
       "roles": [
         {
           "role": "USER"
         }
-      ]
+      ],
+      "id": 2
     }
   ],
   "courses": [
@@ -57,14 +57,14 @@
     {
       "id": 5,
       "title": "Course 5",
-      "description": "Test description 4",
+      "description": "Test description 5",
       "rating": 3.6,
       "addedOn": "2020-05-23T18:25:43.511Z"
     },
     {
       "id": 6,
       "title": "Course 6",
-      "description": "Test description 4",
+      "description": "Test description 6",
       "rating": 2.7,
       "addedOn": "2020-05-23T18:25:43.511Z"
     }

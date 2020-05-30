@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable, of} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {User} from '../models/user.interface';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../models/user.interface';
+import { Role } from '../models/role.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,17 @@ export class AuthenticationService {
   }
 
   register(user: User): Observable<User> {
+    let roleUser: Role = new Role();
+    roleUser.role = 'USER';
+
+    // let roleAdmin: Role = new Role();
+    // roleAdmin.role = 'ADMIN';
+
+    let roles: Role[] = [roleUser];
+    user.roles = roles;
+
+    console.log(user);
+
     return this.http.post<User>(this.url, user);
   }
 

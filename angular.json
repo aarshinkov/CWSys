@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "course-work"
+    }
+  },
+  "defaultProject": "course-work",
+  "cli": {
+    "analytics": false
+  }
 }
