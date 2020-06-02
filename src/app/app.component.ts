@@ -11,7 +11,9 @@ import { Subject } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  hasLoggedUser: boolean;
+  // hasLoggedUser: boolean;
+  // hasAdminRole: boolean;
+  // hasUserRole: boolean;
 
   destroy$ = new Subject<boolean>();
 
@@ -20,18 +22,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.authService.getHasLoggedIn().pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(response => this.hasLoggedUser = response);
+    
   }
 
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
-  }
-
-  onLogout(): void {
-    this.authService.logout();
-    this.router.navigate(['login']);
   }
 }

@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { map, takeUntil } from 'rxjs/operators';
-import { User } from '../models/user.interface';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-signup',
@@ -30,8 +30,6 @@ export class SignupComponent implements OnInit {
   onSubmit(): void {
     // check for password mismatch
     const formData = this.form.value;
-
-    console.log(formData);
 
     if (formData.password !== formData.rePassword) {
       this.errorMessage = 'Passwords do not match.';

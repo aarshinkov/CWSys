@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import { Course } from '../course.interface';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Course } from '../course.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +18,9 @@ export class CoursesService {
 
   getCourseById(id: number): Observable<Course> {
     return this.http.get<Course>(`${this.url}/${id}`);
+  }
+
+  deleteCourse(id: number): Observable<Course> {
+    return this.http.delete<Course>(`${this.url}/${id}`);
   }
 }

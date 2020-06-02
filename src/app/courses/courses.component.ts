@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Course } from './course.interface';
+import { Course } from './course.model';
 import { Subject } from 'rxjs';
 import { CoursesService } from './services/courses.service';
 import { takeUntil } from 'rxjs/operators';
+import { AuthenticationService } from '../auth/services/authentication.service';
 
 @Component({
   selector: 'app-courses',
@@ -13,12 +14,18 @@ export class CoursesComponent implements OnInit, OnDestroy {
 
   courses: Course[];
 
+  hasAdminRole: boolean;
+
   destroy$ = new Subject<boolean>();
 
-  constructor(private coursesService: CoursesService, ) { }
+  constructor(private authService: AuthenticationService,
+    private coursesService: CoursesService) { }
 
   ngOnInit(): void {
     this.getCourses();
+    this.authService.getHasAdminRole().subscribe(isAdmin => {
+      this.hasAdminRole = isAdmin;
+    });
   }
 
   ngOnDestroy(): void {
@@ -43,5 +50,13 @@ export class CoursesComponent implements OnInit, OnDestroy {
     }
 
     return description;
+  }
+
+  onDelete(id: number): void {
+    this.coursesService.deleteCourse(id).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(() => {
+      this.getCourses();
+    });
   }
 }

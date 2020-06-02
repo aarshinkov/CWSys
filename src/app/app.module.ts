@@ -7,7 +7,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AlertComponent } from './alert/alert.component';
+import { UsersComponent } from './users/users.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AlertComponent } from './alert/alert.component';
     CoursesComponent,
     LoginComponent,
     SignupComponent,
-    AlertComponent
+    UsersComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

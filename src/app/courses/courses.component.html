@@ -8,7 +8,9 @@
                 <p class="card-text">{{ trimDescription(course.description) }}</p>
                 <p class="card-text">Rating - <b [title]="[course.rating]">{{ course.rating }}</b></p>
                 <p class="card-text">Added on - <b>{{ course.addedOn | date}}</b></p>
-                <a href="#" class="btn btn-primary" [routerLink]="['/course', course.id]">Visit course</a>
+                <a class="btn btn-primary" *ngIf="hasAdminRole" [routerLink]="['/course', course.id]">View</a>
+                <a class="btn btn-warning ml-2" *ngIf="hasAdminRole" [routerLink]="['/course', course.id]">Update</a>
+                <a class="btn btn-danger text-white ml-2" *ngIf="hasAdminRole" (click)="onDelete(course.id)">Delete</a>
             </div>
         </div>
     </div>

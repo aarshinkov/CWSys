@@ -30,15 +30,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
-
+ 
   onSubmit(): void {
     this.errorMessage = null;
 
     const email = this.form.controls.email.value;
     const password = this.form.get('password').value;
-
-    console.log(email);
-    console.log(password);
 
     this.authService.login(email, password).pipe(
       takeUntil(this.destroy$)
@@ -48,8 +45,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         return;
       }
-
-      console.log("here");
 
       // store logged user
       this.authService.setLoggedUser(response);

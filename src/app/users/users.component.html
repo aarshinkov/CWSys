@@ -1,0 +1,14 @@
+<h3>Users</h3>
+<hr>
+<div class="row mt-4">
+    <div class="col-md-4 col-12" *ngFor="let user of users">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ user.name + ' ' + user.surname }}</h5>
+                <p class="card-text">{{ user.email }}</p>
+                <a class="btn btn-warning" (click)="onBlock(user.id)" style="cursor: pointer;">Block</a>
+                <a class="btn btn-danger text-white ml-2" (click)="onDelete(user.id)" style="cursor: pointer;">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

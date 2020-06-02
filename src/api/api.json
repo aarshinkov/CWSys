@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Admin",
       "surname": "Admin",
       "email": "admin@admin.com",
-      "password": "admin",
+      "password": "qwerty",
       "roles": [
         {
           "role": "ADMIN"
         }
-      ]
+      ],
+      "id": 1
     },
     {
       "name": "Atanas",
@@ -23,6 +23,18 @@
         }
       ],
       "id": 2
+    },
+    {
+      "name": "Martin",
+      "surname": "Velichkov",
+      "email": "m.velichkov97@gmail.com",
+      "password": "qwerty",
+      "roles": [
+        {
+          "role": "USER"
+        }
+      ],
+      "id": 3
     }
   ],
   "courses": [
