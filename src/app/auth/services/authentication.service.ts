@@ -45,15 +45,14 @@ export class AuthenticationService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.loggedUserStorageKey);
-    localStorage.removeItem(this.isAdminKey);
-    localStorage.removeItem(this.isUserKey);
+    this.clearLocalStorage();
 
     this.setHasLoggedIn(false);
     this.setIsAdmin(false);
   }
 
   setLoggedUser(user: User): void {
+    this.clearLocalStorage();
     localStorage.setItem(this.loggedUserStorageKey, JSON.stringify(user));
 
     for (var i = 0; i < user.roles.length; i++) {
@@ -66,6 +65,12 @@ export class AuthenticationService {
     }
 
     this.setHasLoggedIn(true);
+  }
+
+  clearLocalStorage(): void {
+    localStorage.removeItem(this.loggedUserStorageKey);
+    localStorage.removeItem(this.isAdminKey);
+    localStorage.removeItem(this.isUserKey);
   }
 
 

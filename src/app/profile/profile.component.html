@@ -1,0 +1,69 @@
+<h1>Profile</h1>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <h4>General information</h4>
+        <hr>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ user.email }}">
+            </div>
+        </div>
+        <form [formGroup]="infoForm" (ngSubmit)="onInfoSubmit()">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="name" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="form-group">
+                        <label>Surname</label>
+                        <input type="text" class="form-control" formControlName="surname" />
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <h4>Change password</h4>
+        <hr>
+
+        <div class="row" *ngIf="passwordErrorMessage">
+            <div class="col-12">
+                <div class="alert alert-danger">{{passwordErrorMessage}}</div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="passwordSuccessMessage">
+            <div class="col-12">
+                <div class="alert alert-success">{{passwordSuccessMessage}}</div>
+            </div>
+        </div>
+
+        <form [formGroup]="passwordForm" (ngSubmit)="onPassSubmit()">
+            <div class="form-group">
+                <label>Current password</label>
+                <input type="password" class="form-control" formControlName="currentPassword" />
+            </div>
+            <div class="form-group">
+                <label>New password</label>
+                <input type="password" class="form-control" formControlName="newPassword" />
+            </div>
+            <div class="form-group">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" formControlName="confirmPassword" />
+            </div>
+
+            <!-- <div *ngIf="name.errors.minlength">
+                Name must be at least 4 characters long.
+              </div> -->
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>

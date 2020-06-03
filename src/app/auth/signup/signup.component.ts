@@ -31,6 +31,11 @@ export class SignupComponent implements OnInit {
     // check for password mismatch
     const formData = this.form.value;
 
+    if (!this.form.valid) { // <-----
+      
+      return;
+    }
+
     if (formData.password !== formData.rePassword) {
       this.errorMessage = 'Passwords do not match.';
 
@@ -57,6 +62,14 @@ export class SignupComponent implements OnInit {
       if (userResponse) {
         this.errorMessage = 'Email has already been taken. Try with another one.';
 
+        this.form.reset({
+          name: formData.name,
+          surname: formData.surname,
+          email: formData.email,
+          password: '',
+          rePassword: ''
+        });
+
         return;
       }
 
@@ -65,6 +78,8 @@ export class SignupComponent implements OnInit {
       let user: User = this.form.value;
 
       this.form.addControl('rePassword', new FormControl('', Validators.required));
+
+      console.log("signing up");
 
       this.authService.register(user).pipe(
         takeUntil(this.destroy$)

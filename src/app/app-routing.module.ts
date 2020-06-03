@@ -7,6 +7,7 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { NonAuthenticatedGuard } from './auth/guards/non-authenticated.guard';
 import { UsersComponent } from './users/users.component';
 import { AdminGuard } from './auth/guards/admin.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
     path: 'users',
     component: UsersComponent,
     canActivate: [AdminGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

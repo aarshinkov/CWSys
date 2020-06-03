@@ -9,6 +9,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     LoginComponent,
     SignupComponent,
     UsersComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

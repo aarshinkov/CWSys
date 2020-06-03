@@ -13,16 +13,16 @@
       "id": 1
     },
     {
-      "name": "Atanas",
-      "surname": "Arshinkov",
       "email": "a.arshinkov97@gmail.com",
+      "id": 2,
+      "name": "Atanas",
       "password": "qwerty",
+      "surname": "Arshinkov",
       "roles": [
         {
           "role": "USER"
         }
-      ],
-      "id": 2
+      ]
     },
     {
       "name": "Martin",
