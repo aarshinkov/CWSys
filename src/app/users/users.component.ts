@@ -3,6 +3,7 @@ import { User } from '../auth/models/user.model';
 import { UsersService } from './services/users.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AuthenticationService } from '../auth/services/authentication.service';
 
 @Component({
   selector: 'app-users',
@@ -13,9 +14,12 @@ export class UsersComponent implements OnInit {
 
   users: User[];
 
+  user: User;
+
   destroy$ = new Subject<boolean>();
 
-  constructor(private usersService: UsersService) { }
+  constructor(private authService: AuthenticationService,
+    private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -32,7 +36,29 @@ export class UsersComponent implements OnInit {
   }
 
   onBlock(id: number): void {
-    
+    this.usersService.getUserById(id).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(response => {
+      this.user = response;
+      this.user.status = 2;
+
+      this.usersService.updateUser(this.user).subscribe(response => {
+        let updatedUser: User = response;
+      });
+    });
+  }
+
+  onUnblock(id: number): void {
+    this.usersService.getUserById(id).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(response => {
+      this.user = response;
+      this.user.status = 1;
+
+      this.usersService.updateUser(this.user).subscribe(response => {
+        let updatedUser: User = response;
+      });
+    });
   }
 
   onDelete(id: number): void {

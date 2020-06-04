@@ -76,6 +76,7 @@ export class SignupComponent implements OnInit {
       this.form.removeControl('rePassword');
 
       let user: User = this.form.value;
+      user.status = 1;
 
       this.form.addControl('rePassword', new FormControl('', Validators.required));
 

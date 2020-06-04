@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { takeUntil } from 'rxjs/operators';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -40,14 +41,22 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.login(email, password).pipe(
       takeUntil(this.destroy$)
     ).subscribe(response => {
-      if (!response) {
+      let user: User = response;
+
+      if (!user) {
         this.errorMessage = 'Invalid email or password.';
 
         return;
       }
 
+      if (user.status === 2) {
+        this.errorMessage = 'User is blocked.';
+
+        return;
+      }
+
       // store logged user
-      this.authService.setLoggedUser(response);
+      this.authService.setLoggedUser(user);
 
       // redirect to main app
       this.router.navigate(['courses']);

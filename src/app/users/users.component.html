@@ -6,7 +6,8 @@
             <div class="card-body">
                 <h5 class="card-title">{{ user.name + ' ' + user.surname }}</h5>
                 <p class="card-text">{{ user.email }}</p>
-                <a class="btn btn-warning" (click)="onBlock(user.id)" style="cursor: pointer;">Block</a>
+                <a class="btn btn-warning mr-2" *ngIf="user.status === 1" (click)="onBlock(user.id)" style="cursor: pointer;">Block</a>
+                <a class="btn btn-primary text-white" *ngIf="user.status !== 1" (click)="onUnblock(user.id)" style="cursor: pointer;">Unblock</a>
                 <a class="btn btn-danger text-white ml-2" (click)="onDelete(user.id)" style="cursor: pointer;">Delete</a>
             </div>
         </div>

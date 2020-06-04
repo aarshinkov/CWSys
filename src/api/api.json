@@ -5,6 +5,7 @@
       "surname": "Admin",
       "email": "admin@admin.com",
       "password": "qwerty",
+      "status": 1,
       "roles": [
         {
           "role": "ADMIN"
@@ -13,22 +14,24 @@
       "id": 1
     },
     {
-      "email": "a.arshinkov97@gmail.com",
-      "id": 2,
       "name": "Atanas",
-      "password": "qwerty",
       "surname": "Arshinkov",
+      "email": "a.arshinkov97@gmail.com",
+      "password": "qwerty",
+      "status": 1,
       "roles": [
         {
           "role": "USER"
         }
-      ]
+      ],
+      "id": 2
     },
     {
-      "name": "Martin",
-      "surname": "Velichkov",
-      "email": "m.velichkov97@gmail.com",
+      "name": "John",
+      "surname": "Doe",
+      "email": "john.doe@gmail.com",
       "password": "qwerty",
+      "status": 1,
       "roles": [
         {
           "role": "USER"
@@ -43,42 +46,42 @@
       "title": "Course 1",
       "description": "Test description 1",
       "rating": 4.2,
-      "addedOn": "2020-05-23T18:25:43.511Z"
+      "addedOn": "2020-04-15T22:05:21.541Z"
     },
     {
       "id": 2,
       "title": "Course 2",
       "description": "Test description 2",
       "rating": 5.3,
-      "addedOn": "2020-05-23T18:25:43.511Z"
+      "addedOn": "2020-05-18T05:14:55.621Z"
     },
     {
       "id": 3,
       "title": "Course 3",
       "description": "Test description 3",
       "rating": 1.5,
-      "addedOn": "2020-05-23T18:25:43.511Z"
+      "addedOn": "2020-05-19T08:33:15.174Z"
     },
     {
       "id": 4,
       "title": "Course 4",
       "description": "Test description 4",
       "rating": 2.2,
-      "addedOn": "2020-05-23T18:25:43.511Z"
+      "addedOn": "2020-05-21T18:25:43.356Z"
     },
     {
       "id": 5,
       "title": "Course 5",
       "description": "Test description 5",
       "rating": 3.6,
-      "addedOn": "2020-05-23T18:25:43.511Z"
+      "addedOn": "2020-05-22T10:00:13.751Z"
     },
     {
       "id": 6,
       "title": "Course 6",
       "description": "Test description 6",
       "rating": 2.7,
-      "addedOn": "2020-05-23T18:25:43.511Z"
+      "addedOn": "2020-05-23T23:01:25.102Z"
     }
   ]
 }

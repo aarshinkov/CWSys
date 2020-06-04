@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(private infoFb: FormBuilder,
     private passFb: FormBuilder,
-    private userService: UsersService,
+    private usersService: UsersService,
     private authService: AuthenticationService) { }
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.user.name = formData.name;
     this.user.surname = formData.surname;
 
-    this.userService.updateUser(this.user).subscribe(response => {
+    this.usersService.updateUser(this.user).subscribe(response => {
       let updatedUser: User = response;
 
       this.authService.setLoggedUser(updatedUser);
@@ -62,7 +62,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
     let user = this.authService.getLoggedUser();
 
-    this.userService.getUserById(user.id).pipe(
+    this.usersService.getUserById(user.id).pipe(
       takeUntil(this.destroy$)
     ).subscribe(response => {
       let storedPassword = response.password;
@@ -93,7 +93,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.user.password = formData.newPassword;
     console.log("changing") ;
 
-    this.userService.updateUser(this.user).pipe(
+    this.usersService.updateUser(this.user).pipe(
       takeUntil(this.destroy$)
     ).subscribe(response => {
       let updatedUser: User = response;
